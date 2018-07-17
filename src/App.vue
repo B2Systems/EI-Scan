@@ -1,14 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <el-container>
+      <el-main><router-view/></el-main>
+      <el-footer id="footer">
+        <el-row>
+          <el-col :span="8"><h3>Scan</h3></el-col>
+          <el-col :span="8"><h3>Location</h3></el-col>
+          <el-col :span="8"><h3>Account</h3></el-col>
+        </el-row>
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
 <style lang="scss">
+@import "@/sass/variables.scss";
+
+body {
+  padding: 0;
+  margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,5 +36,16 @@
       color: #42b983;
     }
   }
+}
+#footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background: $--color-primary;
+    .el-row {
+      .el-col {
+        height: 100%;
+      }
+    }
 }
 </style>
